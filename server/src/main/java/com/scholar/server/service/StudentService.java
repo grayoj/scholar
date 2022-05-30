@@ -7,6 +7,7 @@ package com.scholar.server.service;
 import java.util.List;
 import java.util.UUID;
 
+import com.scholar.server.exception.UserNotFoundException;
 import com.scholar.server.model.Student;
 import com.scholar.server.repository.StudentRepository;
 
@@ -39,9 +40,11 @@ public class StudentService {
     }
 
     // Find Student
-    public Student findByStudent (Long id) {
-        return studentRepository.findStudentById(id);
+    public Student findByStudentById(Long id) {
+        return studentRepository.findStudentById(id)
+                .orElseThrow(() -> new UserNotFoundException("User by id" + id + "was not found"));
     }
+
     // Delete Student
     public void deleteStudent(Long id) {
         studentRepository.deleteStudentById(id);
