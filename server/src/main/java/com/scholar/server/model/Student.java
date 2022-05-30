@@ -1,4 +1,4 @@
-package model;
+package com.scholar.server.model;
 
 /**
  * Gerald Maduabuchi
