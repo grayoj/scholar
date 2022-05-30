@@ -19,7 +19,7 @@ import javax.persistence.Id;
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = true)
+    @Column(nullable = false, updatable = false)
     private Long id;
     private String firstName;
     private String lastName;
@@ -27,5 +27,6 @@ public class Student implements Serializable {
     private String phone;
     private String imageLoc;
     private String email;
+    @Column(nullable = false, updatable = false)
     private String employeeCode;
 }
