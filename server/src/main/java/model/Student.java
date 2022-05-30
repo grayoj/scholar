@@ -3,11 +3,21 @@
  * Student Model
  */
 
- // Package
+// Package
 package model;
 
+// Import Serializable
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 // Student Class Function
-public class Student {
+public class Student implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
