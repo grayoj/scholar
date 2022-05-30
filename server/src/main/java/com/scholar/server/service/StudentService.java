@@ -25,7 +25,7 @@ public class StudentService {
     // Add Student
     public Student addStudent(Student student) {
         student.setStudentCode(UUID.randomUUID().toString());
-        return studentRepository.save(student);      
+        return studentRepository.save(student);
     }
 
     // Find Student
@@ -33,7 +33,8 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    // Update Student
     public Student updateStudent(Student student) {
-        
+        return studentRepository.save(student);
     }
 }
