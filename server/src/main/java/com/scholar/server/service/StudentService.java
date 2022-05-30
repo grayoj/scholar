@@ -38,6 +38,10 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
+    // Find Student
+    public Student findByStudent (Long id) {
+        return studentRepository.findStudentById(id);
+    }
     // Delete Student
     public void deleteStudent(Long id) {
         studentRepository.deleteStudentById(id);
