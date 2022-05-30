@@ -4,6 +4,7 @@
  */
 package com.scholar.server.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.scholar.server.model.Student;
@@ -25,5 +26,14 @@ public class StudentService {
     public Student addStudent(Student student) {
         student.setStudentCode(UUID.randomUUID().toString());
         return studentRepository.save(student);      
+    }
+
+    // Find Student
+    public List<Student> findAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    public Student updateStudent(Student student) {
+        
     }
 }
