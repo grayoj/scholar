@@ -21,11 +21,18 @@ export class StudentService {
 
   constructor(private http: HttpClient) {}
 
+  // Get Student
   public getStudents(): Observable<Student[]> {
     return this.http.get<any>(`${this.apiServerUrl}/student/all`);
   }
 
+  // Add student
   public addStudent(student: Student): Observable<Student> {
     return this.http.post<Student>(`${this.apiServerUrl}/student/add`, student);
+  }
+
+  // Update Student
+  public updateStudent(student: Student): Observable<Student> {
+    return this.http.put<Student>(`${this.apiServerUrl}/student/update`, student);
   }
 }
