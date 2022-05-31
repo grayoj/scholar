@@ -12,6 +12,7 @@ import com.scholar.server.service.StudentService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ public class StudentResource {
 
     public StudentResource(StudentService studentService) {
         this.studentService = studentService;
-        
+
     }
 
     @GetMapping("/all")
@@ -49,7 +50,14 @@ public class StudentResource {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Student> updateStudent(@RequestBody Student student)
-    Student updateStudent = studentService.updateStudent(student);
-    return new ResponseEntity<>(updateStudent, HttpStatus.OK);
+    public ResponseEntity<Student> updateStudent(@RequestBody Student student) {
+        Student updateStudent = studentService.updateStudent(student);
+        return new ResponseEntity<>(updateStudent, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Student>deleteStudent(@PathVariable("id") Long id) {
+        studentService.deleteStudent(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
