@@ -27,7 +27,7 @@ public class StudentResource {
         
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Student>> getAllStudents() {
         List<Student> students = studentService.findAllStudents();
         return new ResponseEntity<>(students, HttpStatus.OK);
@@ -38,4 +38,5 @@ public class StudentResource {
         Student student = studentService.findStudentById(id);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
+
 }
