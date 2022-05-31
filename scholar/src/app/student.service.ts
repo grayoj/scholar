@@ -6,7 +6,7 @@
 // Import http client
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import  { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 // Import Student module
 import { Student } from './student';
@@ -19,7 +19,7 @@ import { Student } from './student';
 export class StudentService {
   private apiServerUrl: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Get Student
   public getStudents(): Observable<Student[]> {
@@ -34,5 +34,10 @@ export class StudentService {
   // Update Student
   public updateStudent(student: Student): Observable<Student> {
     return this.http.put<Student>(`${this.apiServerUrl}/student/update`, student);
+  }
+
+  // Delete Student
+  public deleteStudent(studentId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/student/delete/${studentId}`);
   }
 }
