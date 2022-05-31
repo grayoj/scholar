@@ -40,7 +40,7 @@ public class StudentService {
     }
 
     // Find Student
-    public Student findByStudentById(Long id) {
+    public Student findStudentById(Long id) {
         return studentRepository.findStudentById(id)
                 .orElseThrow(() -> new UserNotFoundException("User by id" + id + "was not found"));
     }
