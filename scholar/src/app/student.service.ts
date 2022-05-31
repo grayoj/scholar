@@ -7,6 +7,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 // Import Student module
 import { Student } from './student';
@@ -17,7 +18,7 @@ import { Student } from './student';
 })
 
 export class StudentService {
-  private apiServerUrl: string = '';
+  private apiServerUrl: string = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
