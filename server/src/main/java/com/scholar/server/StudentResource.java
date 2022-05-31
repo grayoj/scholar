@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,4 +47,9 @@ public class StudentResource {
         Student newStudent = studentService.addStudent(student);
         return new ResponseEntity<>(newStudent, HttpStatus.CREATED);
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<Student> updateStudent(@RequestBody Student student)
+    Student updateStudent = studentService.updateStudent(student);
+    return new ResponseEntity<>(updateStudent, HttpStatus.OK);
 }
